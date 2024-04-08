@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../../../public/img/background-login.png") no-repeat center;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding: 100px 100px 125px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(10px);
+}

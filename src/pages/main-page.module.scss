@@ -1,0 +1,34 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.page__index {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.page__login {
+  display: flex;
+  flex-grow: 1;
+}
+
+.page__slider {
+  margin-bottom: 50px;
+}
+
+.content__container {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  padding: 30px 30px 50px 30px;
+  border-radius: 15px;
+  background: #0a031c;
+
+  @media (max-width: 376px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

@@ -1,0 +1,92 @@
+.wrapper {
+  padding-top: 15px;
+  display: flex;
+
+  @media (max-width: 376px) {
+    padding-top: 5px;
+  }
+}
+
+.link {
+  margin-right: 48px;
+}
+
+.image {
+  display: block;
+  padding: 10px 3px;
+
+  @media (max-width: 376px) {
+    width: 68px;
+    height: 28px;
+    padding: 4px 2px;
+  }
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+
+  &__menu {
+    margin-right: auto;
+
+    @media (max-width: 376px) {
+      display: none;
+    }
+  }
+
+  &__user {
+    gap: 25px;
+    margin-left: auto;
+  }
+
+  &__seasons {
+    text-align: center;
+  }
+}
+
+.navigation__link {
+  display: flex;
+  flex-direction: column;
+}
+
+.seasonName {
+  text-transform: capitalize;
+}
+
+.seasonYear {
+  font-size: 0.8rem;
+  color: #acacac;
+}
+
+.navigation__input {
+  display: none;
+}
+
+.navigation__searchIcon {
+  @media (max-width: 376px) {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.navigation__button {
+  padding: 4px 14px;
+  border-radius: 6px;
+  background-color: #ff2c78;
+
+  @media (max-width: 376px) {
+    font-size: 12px;
+  }
+}

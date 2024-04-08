@@ -1,0 +1,43 @@
+.button {
+  position: absolute;
+  top: 285px;
+  margin: 0;
+  width: 68px;
+  height: 90px;
+  border-radius: 7px;
+  border: 1px solid rgba(220, 220, 220, 0.30);
+  background: rgba(246, 246, 246, 0.40) url("../../../public/img/icon-arrow.svg") no-repeat center;
+  background-size: 70%;
+  backdrop-filter: blur(16px);
+  z-index: 5;
+
+  @media (max-width: 376px) {
+    width: 35px;
+    height: 50px;
+    top: 85px;
+    z-index: 10;
+  }
+
+  &__prev {
+    left: 190px;
+
+    @media (max-width: 376px) {
+      left: 30px;
+    }
+  }
+
+  &__next {
+    right: 190px;
+    transform: rotate(180deg);
+
+    @media (max-width: 376px) {
+      right: 30px;
+    }
+  }
+
+  &__filters {
+    top: 0;
+    width: 35px;
+    height: 50px;
+  }
+}

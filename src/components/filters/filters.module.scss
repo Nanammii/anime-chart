@@ -1,0 +1,40 @@
+.filters__container {
+  position: relative;
+}
+
+.filters__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 25px;
+  align-items: center;
+  list-style: none;
+  overflow-x: hidden;
+}
+
+.filters__link {
+  display: block;
+  min-width: 115px;
+  padding: 20px 17px;
+  border-radius: 6.26px;
+  background: var(--2, radial-gradient(448.8% 100.69% at 97.73% 23.91%, rgba(252, 132, 175, 0.20) 0%, rgba(167, 125, 255, 0.20) 100%));
+  backdrop-filter: blur(12.520867347717285px);
+  color: #d6d6d6;
+  text-align: center;
+}
+
+.buttons {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  width: 50px;
+  height: 70px;
+
+  &__prev {
+    left: 10px;
+  }
+
+  &__next {
+    right: 10px;
+  }
+}
