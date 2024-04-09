@@ -12,8 +12,7 @@ export default function Header() {
 
   const currentSeason = useSelector(getSeasons);
   const {year, seasons} = currentSeason;
-  console.log(seasons)
-
+  console.log(currentSeason)
 
   return (
     <header className="header">
@@ -39,7 +38,7 @@ export default function Header() {
             </ul>
             <ul className={classNames(styles.navigation__list, styles.navigation__list__seasons)}>
               {seasons.map((item) => (
-                <li>
+                <li key={item}>
                   <Link className={styles.navigation__link} to={"/"}>
                     <span className={styles.seasonName}>{item}</span>
                     <span className={styles.seasonYear}>{year}</span>

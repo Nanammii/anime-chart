@@ -10,7 +10,7 @@ import {getLoadingSeasons} from "../../store/seasons/selectors";
 function App() {
   const isAnimeDataLoading = useSelector(getIsLoadingAnime);
   const isLoadingSeasons = useSelector(getLoadingSeasons);
-  console.log(isAnimeDataLoading)
+  console.log(isAnimeDataLoading, isLoadingSeasons)
 
   if (isAnimeDataLoading && isLoadingSeasons) {
     return (

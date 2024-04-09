@@ -7,6 +7,7 @@ import store from "./store/store";
 import {fetchAnimeSeasons, fetchAnimeSeasonsAll} from "./store/actions";
 
 store.dispatch(fetchAnimeSeasons());
+store.dispatch(fetchAnimeSeasonsAll());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

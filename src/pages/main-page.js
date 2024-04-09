@@ -16,9 +16,11 @@ function MainPage() {
   console.log(anime);
 
 
-  useEffect(() => {
-    dispatch(fetchAnimeSeasonsAll());
-  }, [dispatch])
+  //
+  // useEffect(() => {
+  //   debugger
+  //   dispatch(fetchAnimeSeasonsAll());
+  // }, [])
 
   return (
     <div className={styles.page}>
