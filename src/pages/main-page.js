@@ -7,34 +7,41 @@ import Filters from "../components/filters/filters";
 import classNames from "classnames";
 import Category from "../components/category/category";
 import {useEffect} from "react";
-import {fetchAnimeSeasonsAll} from "../store/actions";
+import {fetchAnimeBySeasons, fetchAnimeSeasonsAll} from "../store/actions";
 import {getSeasons} from "../store/seasons/selectors";
+import {getAnimeBySeasons} from "../store/anime-by-seasons/selectors";
+import {getChangeSeason} from "../store/change-season/selectors";
 
 function MainPage() {
   const dispatch = useDispatch();
   const anime = useSelector(getAnime);
-  console.log(anime);
+  const seasons = useSelector(getSeasons);
+  const animeBySeasons = useSelector(getAnimeBySeasons)
 
+  const currentSeason = useSelector(getChangeSeason)
+  console.log(anime, seasons, animeBySeasons, currentSeason)
 
-  //
-  // useEffect(() => {
-  //   debugger
-  //   dispatch(fetchAnimeSeasonsAll());
-  // }, [])
+  const animeList = !animeBySeasons ? anime : animeBySeasons
+  console.log(animeList)
+
+  useEffect(() => {
+
+    dispatch(fetchAnimeBySeasons(currentSeason));
+  }, [currentSeason])
 
   return (
     <div className={styles.page}>
-      <Header />
+      <Header currentSeasons={seasons} />
 
-      {anime.length &&
+      {animeList.length &&
         <main className={styles.page__index}>
           <div className={styles.page__slider}>
-            <Slider items={anime} />
+            <Slider items={animeList} />
           </div>
           <div className={classNames("content", "container")}>
             <div className={styles.content__container}>
               <Filters />
-              <Category items={anime} />
+              <Category items={animeList} />
             </div>
 
           </div>

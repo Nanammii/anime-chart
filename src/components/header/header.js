@@ -1,18 +1,20 @@
 import {Link} from "react-router-dom";
 import styles from "./header.module.scss";
 import classNames from "classnames";
-import {SortingLanguage} from "../../const";
+import {MENU, SortingLanguage} from "../../const";
 import Sorting from "../sorting/sorting";
 import {useState} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getSeasons} from "../../store/seasons/selectors";
+import {changeSeason} from "../../store/actions";
 
-export default function Header() {
+export default function Header({currentSeasons}) {
+  const dispatch = useDispatch();
   const [selectedSorting, setSelectedSorting] = useState(SortingLanguage.English);
 
-  const currentSeason = useSelector(getSeasons);
-  const {year, seasons} = currentSeason;
-  console.log(currentSeason)
+  // const seasonsCurrent = useSelector(getSeasons);
+  const {year, seasons} = currentSeasons;
+  console.log(currentSeasons)
 
   return (
     <header className="header">
@@ -23,29 +25,28 @@ export default function Header() {
           </Link>
           <nav className={classNames(styles.navigation, styles.userNav)}>
             <ul className={classNames(styles.navigation__list, styles.navigation__list__menu)}>
-              <li>
-                <Link className={styles.navigation__link} to={"/"}>Home</Link>
-              </li>
-              <li>
-                <Link className={styles.navigation__link} to={"/series"}>Series</Link>
-              </li>
-              <li>
-                <Link className={styles.navigation__link} to={"/movies"}>Movies</Link>
-              </li>
-              <li>
-                <Link className={styles.navigation__link} to={"/top"}>Top</Link>
-              </li>
+              {MENU.map((item) => (
+                <li key={item.name}>
+                  <Link className={styles.navigation__link} to={item.link}>{item.name}</Link>
+                </li>
+              ))}
             </ul>
+
             <ul className={classNames(styles.navigation__list, styles.navigation__list__seasons)}>
               {seasons.map((item) => (
                 <li key={item}>
-                  <Link className={styles.navigation__link} to={"/"}>
+                  <Link
+                    className={styles.navigation__link}
+                    to={"/"}
+                    onClick={() => dispatch(changeSeason(item))}
+                  >
                     <span className={styles.seasonName}>{item}</span>
                     <span className={styles.seasonYear}>{year}</span>
                   </Link>
                 </li>
               ))}
             </ul>
+
             <ul className={classNames(styles.navigation__list, styles.navigation__list__user)}>
               <li>
                 <Sorting selectedSorting={selectedSorting} onTypeClick={(sort) => setSelectedSorting(sort)} />
